@@ -13,16 +13,16 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/planilhas")
-public class PlanilhaCotroller {
+public class PlanilhaController {
 
     private final PlanilhaService planilhaService;
 
     @Autowired
-    public PlanilhaCotroller(PlanilhaService planilhaService) {
+    public PlanilhaController(PlanilhaService planilhaService) {
         this.planilhaService = planilhaService;
     }
 
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<Void> gerarPlanilha() throws IOException {
         planilhaService.gerarPlanilha();
         return new ResponseEntity<>(HttpStatus.OK);
